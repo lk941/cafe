@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b3in36b40eybg"]
+
+[ext_resource type="Texture2D" uid="uid://cqr0ydknrn6if" path="res://assets/cafe_2.png" id="1_0dv7p"]
+[ext_resource type="Script" uid="uid://ctyb06la48xv8" path="res://scenes/cafe.gd" id="1_a6vgn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dv7p"]
+size = Vector2(308, 171)
+
+[node name="Node2D" type="Node2D" unique_id=685816980]
+script = ExtResource("1_a6vgn")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=264423813]
+custom_minimum_size = Vector2(960, 540)
+offset_right = 1160.0
+offset_bottom = 647.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_0dv7p")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="menu" type="Area2D" parent="." unique_id=1718000390]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu" unique_id=1995209384]
+position = Vector2(270, 501.5)
+shape = SubResource("RectangleShape2D_0dv7p")
+
+[connection signal="input_event" from="menu" to="." method="_on_menu_input_event"]
