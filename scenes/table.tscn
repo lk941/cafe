@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://ox8ljdtbrydm"]
 
 [ext_resource type="Texture2D" uid="uid://do4cdeml4acpe" path="res://assets/table.png" id="1_02ppr"]
+[ext_resource type="Script" uid="uid://dr0nra1ek18ty" path="res://scenes/table.gd" id="1_eotx8"]
+[ext_resource type="FontFile" uid="uid://m6r4wbwsodi4" path="res://fonts/m5x7.ttf" id="3_x8522"]
 
-[node name="Node2D" type="Node2D" unique_id=1064877953]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02ppr"]
+size = Vector2(173.5, 203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
+size = Vector2(134.5, 94)
+
+[node name="table" type="Node2D" unique_id=1064877953]
+script = ExtResource("1_eotx8")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1245745693]
 offset_right = 1150.0
@@ -11,3 +20,51 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("1_02ppr")
 expand_mode = 2
+
+[node name="menu" type="Area2D" parent="." unique_id=2128305936]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu" unique_id=798913142]
+position = Vector2(694, 449)
+shape = SubResource("RectangleShape2D_02ppr")
+
+[node name="card" type="Area2D" parent="." unique_id=489222123]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="card" unique_id=782432661]
+position = Vector2(875.75, 302)
+shape = SubResource("RectangleShape2D_eotx8")
+
+[node name="background" type="ColorRect" parent="." unique_id=1238157877]
+visible = false
+offset_right = 1151.0
+offset_bottom = 646.0
+color = Color(0.07058824, 0.07058824, 0.09803922, 0.42745098)
+
+[node name="content" type="ColorRect" parent="background" unique_id=641900372]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 84.0
+offset_right = 943.0
+offset_bottom = 512.0
+color = Color(1, 0.954, 0.94, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="background/content" unique_id=1011372139]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 699.0
+offset_bottom = 412.0
+theme_override_colors/default_color = Color(0.88, 0.4928, 0.49925324, 1)
+theme_override_fonts/normal_font = ExtResource("3_x8522")
+theme_override_font_sizes/normal_font_size = 28
+text = "Hello En Ci,
+
+happy birthday!!!!! <333333
+
+celebrating your 25th is crazy and such an important milestone to hit no matter how different our lives get. This took a lil too long to make but I have been cooking the idea of a blind box bday gift cafe for a while now and congrats, you are the first person I am testing this out on. 
+
+click on the menu and you will find a list of blindboxes to choose from. the design of whatever you end up pulling is a hint as to what you're about to be sent :) as always, thank u for staying a solid constant all these years.
+
+                                                   <3 from leekee!!!!"
+
+[connection signal="input_event" from="card" to="." method="_on_card_input_event"]
+[connection signal="gui_input" from="background" to="." method="_on_background_gui_input"]
