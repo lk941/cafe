@@ -111,6 +111,21 @@ body {
 
 		<script src="cafe.js"></script>
 		<script>
+
+		async function sendToTelegram(userResponse) {
+			const TOKEN = "8678441787:AAHu7_xLrryNUjDOGriqAsuVnVKWdFbjOYc";
+			const CHAT_ID = "536935539";
+			
+			await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+				chat_id: CHAT_ID,
+				text: `User response: ${userResponse}`
+				})
+			});
+		}
+
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"cafe","experimentalVK":false,"fileSizes":{"cafe.pck":57476,"cafe.wasm":35739700},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
@@ -146,20 +161,6 @@ const engine = new Engine(GODOT_CONFIG);
 		lines.forEach((line) => {
 			statusNotice.appendChild(document.createTextNode(line));
 			statusNotice.appendChild(document.createElement('br'));
-		});
-	}
-
-	async function sendToTelegram(userResponse) {
-		const TOKEN = "8678441787:AAHu7_xLrryNUjDOGriqAsuVnVKWdFbjOYc";
-		const CHAT_ID = "536935539";
-		
-		await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({
-			chat_id: CHAT_ID,
-			text: `User response: ${userResponse}`
-			})
 		});
 	}
 
