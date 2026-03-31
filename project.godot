@@ -13,7 +13,11 @@ config_version=5
 config/name="cafe"
 run/main_scene="uid://b3in36b40eybg"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.558334, 0.60783947, 0.53338414, 1)
+boot_splash/stretch_mode=0
+boot_splash/image="uid://lh4qbklnqc1u"
+config/icon="res://icon2.svg"
+boot_splash/minimum_display_time=2000
 
 [display]
 

@@ -3,12 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://do4cdeml4acpe" path="res://assets/table.png" id="1_02ppr"]
 [ext_resource type="Script" uid="uid://dr0nra1ek18ty" path="res://scenes/table.gd" id="1_eotx8"]
 [ext_resource type="FontFile" uid="uid://m6r4wbwsodi4" path="res://fonts/m5x7.ttf" id="3_x8522"]
+[ext_resource type="Texture2D" uid="uid://xwd24l5d42ef" path="res://assets/girl1.png" id="4_u03e6"]
+[ext_resource type="Texture2D" uid="uid://ctbtx3ndmo32b" path="res://assets/girl2.png" id="5_2f5gb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02ppr"]
 size = Vector2(173.5, 203)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
 size = Vector2(134.5, 94)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u03e6"]
+bg_color = Color(0.8319688, 0.47140145, 0.5927673, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2f5gb"]
+bg_color = Color(0.9179618, 0.6834382, 0.7536197, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov7a8"]
+bg_color = Color(0.91764706, 0.68235296, 0.7529412, 1)
 
 [node name="table" type="Node2D" unique_id=1064877953]
 script = ExtResource("1_eotx8")
@@ -33,13 +44,13 @@ shape = SubResource("RectangleShape2D_02ppr")
 position = Vector2(875.75, 302)
 shape = SubResource("RectangleShape2D_eotx8")
 
-[node name="background" type="ColorRect" parent="." unique_id=1238157877]
+[node name="foryoucard" type="ColorRect" parent="." unique_id=1238157877]
 visible = false
 offset_right = 1151.0
 offset_bottom = 646.0
 color = Color(0.07058824, 0.07058824, 0.09803922, 0.42745098)
 
-[node name="content" type="ColorRect" parent="background" unique_id=641900372]
+[node name="content" type="ColorRect" parent="foryoucard" unique_id=641900372]
 layout_mode = 0
 offset_left = 223.0
 offset_top = 84.0
@@ -47,7 +58,7 @@ offset_right = 943.0
 offset_bottom = 512.0
 color = Color(1, 0.954, 0.94, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="background/content" unique_id=1011372139]
+[node name="RichTextLabel" type="RichTextLabel" parent="foryoucard/content" unique_id=1011372139]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 31.0
@@ -60,11 +71,81 @@ text = "Hello En Ci,
 
 happy birthday!!!!! <333333
 
-celebrating your 25th is crazy and such an important milestone to hit no matter how different our lives get. This took a lil too long to make but I have been cooking the idea of a blind box bday gift cafe for a while now and congrats, you are the first person I am testing this out on. 
+celebrating your 25th is crazy and such an important milestone to hit no matter how different our lives get. This took a lil too long to make but I have been cooking the idea of a blind box bday gift cafe for a while now and congrats, you are the first person I am testing this out on!! 
 
 click on the menu and you will find a list of blindboxes to choose from. the design of whatever you end up pulling is a hint as to what you're about to be sent :) as always, thank u for staying a solid constant all these years.
 
                                                    <3 from leekee!!!!"
 
+[node name="menucontents" type="ColorRect" parent="." unique_id=1100242623]
+visible = false
+offset_right = 1151.0
+offset_bottom = 646.0
+color = Color(0.07058824, 0.07058824, 0.09803922, 0.42745098)
+
+[node name="content" type="ColorRect" parent="menucontents" unique_id=306915566]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 84.0
+offset_right = 925.0
+offset_bottom = 512.0
+color = Color(0.97770494, 0.9699438, 0.8813755, 1)
+
+[node name="girl1" type="TextureRect" parent="menucontents/content" unique_id=717937919]
+layout_mode = 0
+offset_left = 62.999992
+offset_top = 29.999996
+offset_right = 319.0
+offset_bottom = 286.0
+texture = ExtResource("4_u03e6")
+
+[node name="TextureRect" type="TextureRect" parent="menucontents/content" unique_id=1026051864]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 35.0
+offset_right = 612.0
+offset_bottom = 291.0
+texture = ExtResource("5_2f5gb")
+
+[node name="ButtonA" type="Button" parent="menucontents/content" unique_id=2008441860]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 294.0
+offset_right = 240.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_x8522")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_u03e6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2f5gb")
+text = "Girl A"
+
+[node name="ButtonB" type="Button" parent="menucontents/content" unique_id=1520395988]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 294.0
+offset_right = 537.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_x8522")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_u03e6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ov7a8")
+text = "Girl B"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="menucontents/content" unique_id=183753538]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 347.0
+offset_right = 645.0
+offset_bottom = 389.0
+theme_override_colors/default_color = Color(0.88, 0.4928, 0.49925324, 1)
+theme_override_fonts/normal_font = ExtResource("3_x8522")
+theme_override_font_sizes/normal_font_size = 28
+text = "pick one!!!"
+horizontal_alignment = 1
+
+[connection signal="input_event" from="menu" to="." method="_on_menu_input_event"]
 [connection signal="input_event" from="card" to="." method="_on_card_input_event"]
-[connection signal="gui_input" from="background" to="." method="_on_background_gui_input"]
+[connection signal="gui_input" from="foryoucard" to="." method="_on_background_gui_input"]
+[connection signal="gui_input" from="menucontents" to="." method="_on_menucontents_gui_input"]
