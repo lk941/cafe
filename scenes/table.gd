@@ -21,3 +21,17 @@ func _on_menu_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> 
 func _on_menucontents_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		menu.visible = false
+
+
+func _on_button_a_pressed() -> void:
+	var user_input = $menucontents/content/ButtonA.text
+	JavaScriptBridge.eval("""
+        sendToTelegram('%s');
+	""" % user_input)
+
+
+func _on_button_b_pressed() -> void:
+	var user_input = $menucontents/content/ButtonB.text
+	JavaScriptBridge.eval("""
+        sendToTelegram('%s');
+	""" % user_input)

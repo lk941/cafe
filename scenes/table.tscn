@@ -45,7 +45,6 @@ position = Vector2(875.75, 302)
 shape = SubResource("RectangleShape2D_eotx8")
 
 [node name="foryoucard" type="ColorRect" parent="." unique_id=1238157877]
-visible = false
 offset_right = 1151.0
 offset_bottom = 646.0
 color = Color(0.07058824, 0.07058824, 0.09803922, 0.42745098)
@@ -73,7 +72,7 @@ happy birthday!!!!! <333333
 
 celebrating your 25th is crazy and such an important milestone to hit no matter how different our lives get. This took a lil too long to make but I have been cooking the idea of a blind box bday gift cafe for a while now and congrats, you are the first person I am testing this out on!! 
 
-click on the menu and you will find a list of blindboxes to choose from. the design of whatever you end up pulling is a hint as to what you're about to be sent :) as always, thank u for staying a solid constant all these years.
+click on the menu and you will find 2 characters to choose from. their designs are a hint as to what you could be sent :) as always, thank u for staying a solid constant all these years.
 
                                                    <3 from leekee!!!!"
 
@@ -99,7 +98,7 @@ offset_right = 319.0
 offset_bottom = 286.0
 texture = ExtResource("4_u03e6")
 
-[node name="TextureRect" type="TextureRect" parent="menucontents/content" unique_id=1026051864]
+[node name="girl2" type="TextureRect" parent="menucontents/content" unique_id=1026051864]
 layout_mode = 0
 offset_left = 356.0
 offset_top = 35.0
@@ -149,3 +148,5 @@ horizontal_alignment = 1
 [connection signal="input_event" from="card" to="." method="_on_card_input_event"]
 [connection signal="gui_input" from="foryoucard" to="." method="_on_background_gui_input"]
 [connection signal="gui_input" from="menucontents" to="." method="_on_menucontents_gui_input"]
+[connection signal="pressed" from="menucontents/content/ButtonA" to="." method="_on_button_a_pressed"]
+[connection signal="pressed" from="menucontents/content/ButtonB" to="." method="_on_button_b_pressed"]
