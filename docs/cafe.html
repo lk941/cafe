@@ -138,20 +138,6 @@ const engine = new Engine(GODOT_CONFIG);
 		statusMode = mode;
 	}
 
-	async function sendToTelegram(userResponse) {
-	const TOKEN = "8678441787:AAHu7_xLrryNUjDOGriqAsuVnVKWdFbjOYc";
-	const CHAT_ID = "536935539";
-	
-	await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({
-		chat_id: CHAT_ID,
-		text: `User response: ${userResponse}`
-		})
-	});
-	}
-
 	function setStatusNotice(text) {
 		while (statusNotice.lastChild) {
 			statusNotice.removeChild(statusNotice.lastChild);
@@ -162,6 +148,21 @@ const engine = new Engine(GODOT_CONFIG);
 			statusNotice.appendChild(document.createElement('br'));
 		});
 	}
+
+	async function sendToTelegram(userResponse) {
+		const TOKEN = "8678441787:AAHu7_xLrryNUjDOGriqAsuVnVKWdFbjOYc";
+		const CHAT_ID = "536935539";
+		
+		await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+			chat_id: CHAT_ID,
+			text: `User response: ${userResponse}`
+			})
+		});
+	}
+
 
 	function displayFailureNotice(err) {
 		console.error(err);

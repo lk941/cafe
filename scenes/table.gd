@@ -25,13 +25,9 @@ func _on_menucontents_gui_input(event: InputEvent) -> void:
 
 func _on_button_a_pressed() -> void:
 	var user_input = $menucontents/content/ButtonA.text
-	JavaScriptBridge.eval("""
-        sendToTelegram('%s');
-	""" % user_input)
+	JavaScriptBridge.eval("sendToTelegram('" + user_input + "')")
 
 
 func _on_button_b_pressed() -> void:
 	var user_input = $menucontents/content/ButtonB.text
-	JavaScriptBridge.eval("""
-        sendToTelegram('%s');
-	""" % user_input)
+	JavaScriptBridge.eval("sendToTelegram('" + user_input + "')")
