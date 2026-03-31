@@ -145,6 +145,16 @@ theme_override_font_sizes/normal_font_size = 28
 text = "pick one!!!"
 horizontal_alignment = 1
 
+[node name="submittedtext" type="RichTextLabel" parent="." unique_id=1651604924]
+visible = false
+offset_left = 460.0
+offset_top = 303.0
+offset_right = 844.0
+offset_bottom = 343.0
+theme_override_fonts/normal_font = ExtResource("3_x8522")
+theme_override_font_sizes/normal_font_size = 24
+text = "your choice has been submitted! stay or leave anytime you want :> "
+
 [connection signal="input_event" from="menu" to="." method="_on_menu_input_event"]
 [connection signal="input_event" from="card" to="." method="_on_card_input_event"]
 [connection signal="gui_input" from="foryoucard" to="." method="_on_background_gui_input"]

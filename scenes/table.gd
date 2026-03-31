@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var card = $foryoucard
 @onready var menu = $menucontents
+@onready var submitted = $submittedtext
 
 
 func _on_card_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -26,8 +27,17 @@ func _on_menucontents_gui_input(event: InputEvent) -> void:
 func _on_button_a_pressed() -> void:
 	var user_input = $menucontents/content/ButtonA.text
 	JavaScriptBridge.eval("sendToTelegram('" + user_input + "')")
+	menu.visible = false
+	submitted.visible = true
+	await get_tree().create_timer(3.0).timeout
+	submitted.visible = false
 
 
 func _on_button_b_pressed() -> void:
 	var user_input = $menucontents/content/ButtonB.text
 	JavaScriptBridge.eval("sendToTelegram('" + user_input + "')")
+	menu.visible = false
+	submitted.visible = true
+	await get_tree().create_timer(3.0).timeout
+	submitted.visible = false
+	
